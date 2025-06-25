@@ -1,0 +1,32 @@
+# Log dan file error dari package manager
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Folder dependensi. Ini yang paling PENTING!
+# Folder ini bisa dibuat ulang kapan saja dengan perintah `npm install`
+node_modules
+
+# Folder hasil build.
+# Folder ini dibuat oleh perintah `npm run build` dan tidak perlu disimpan di Git.
+dist
+dist-ssr
+
+# File environment. Untuk menyimpan kunci API rahasia, dll.
+.env
+.env.local
+.env.*.local
+
+# File sistem operasi
+.DS_Store
+Thumbs.db
+
+# Folder cache dan konfigurasi editor
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
