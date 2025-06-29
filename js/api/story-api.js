@@ -58,10 +58,12 @@ const StoryAPI = {
     return responseJson;
   },
 
+  // --- FUNGSI SUBSCRIBE NOTIFICATION YANG DIPERBAIKI ---
   async subscribeNotification(subscription) {
-    // Ekstrak keys dari objek subscription
-    const subscriptionData = subscription.toJSON();
-    const { p256dh, auth } = subscriptionData.keys;
+    // Objek 'subscription' sudah dalam format yang benar dari notification-helper.js
+    // Kita tidak perlu memanggil .toJSON() lagi.
+    // Langsung ekstrak p256dh dan auth dari 'keys'.
+    const { p256dh, auth } = subscription.keys;
 
     const response = await fetch(`${this._BASE_URL}/notifications/subscribe`, {
       method: 'POST',
