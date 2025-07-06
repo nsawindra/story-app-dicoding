@@ -2,15 +2,16 @@ import { precacheAndRoute } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
 import { NetworkFirst, CacheFirst, StaleWhileRevalidate } from 'workbox-strategies';
 
+// Cache semua aset dari manifest
 precacheAndRoute(self.__WB_MANIFEST);
 
-// Navigasi HTML Pages
+// Halaman HTML (navigasi)
 registerRoute(
   ({ request }) => request.mode === 'navigate',
   new NetworkFirst({ cacheName: 'pages-cache' })
 );
 
-// CSS/JS
+// CSS/JS/Worker
 registerRoute(
   ({ request }) =>
     request.destination === 'style' ||
